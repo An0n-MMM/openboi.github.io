@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Server Status</title>
+</head>
+<body>
+  <h1>Server Metrics</h1>
+  <div id="metrics">Loading...</div>
+
+  <script>
+    async function loadMetrics() {
+      const res = await fetch("metrics.json");
+      const data = await res.json();
+
+      document.getElementById("metrics").innerHTML = `
+        Status: ${data.server_status}<br>
+        Players: ${data.online_players}/${data.max_players}<br>
+        Tick Rate: ${data.tick_rate}<br>
+        CPU: ${data.cpu_usage}%<br>
+        Memory: ${data.memory_usage} MB
+      `;
+    }
+
+    loadMetrics();
+    setInterval(loadMetrics, 10000);
+  </script>
+</body>
+</html>
