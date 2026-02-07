@@ -1,0 +1,8 @@
+{
+  "online_players": 42,
+  "max_players": 100,
+  "server_status": "online",
+  "tick_rate": 60,
+  "cpu_usage": 37.4,
+  "memory_usage": 512
+}
